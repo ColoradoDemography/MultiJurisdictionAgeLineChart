@@ -1,8 +1,96 @@
+var selectElemGeo = document.getElementById('geosel');
 var selectElemCounty = document.getElementById('sel');
+var selectElemMuni = document.getElementById('munisel');
 var selectElemSource = document.getElementById('sel2');
 var selectElemStat = document.getElementById('sel3');
 var drawElement = document.getElementById('drawbtn');
 var srcCanvas = document.getElementById('canvas');
+
+
+$("#geosel").on('change',function(){  
+  var value=$(this).val();
+  if(value=="County")
+  {
+    var options = "";
+    options+='<option value="0" >Colorado</option>'
+      +'<option value="1" >Adams</option>'
+      +'<option value="3" >Alamosa</option>'
+      +'<option value="5" >Arapahoe</option>'
+      +'<option value="7" >Archuleta</option>'
+      +'<option value="9" >Baca</option>'
+      +'<option value="11" >Bent</option>'
+      +'<option value="13" >Boulder</option>'
+      +'<option value="14" >Broomfield</option>'
+      +'<option value="15" >Chaffee</option>'
+      +'<option value="17" >Cheyenne</option>'
+      +'<option value="19" >Clear Creek</option>'
+      +'<option value="21" >Conejos</option>'
+      +'<option value="23" >Costilla</option>'
+      +'<option value="25" >Crowley</option>'
+      +'<option value="27" >Custer</option>'
+      +'<option value="29" >Delta</option>'
+      +'<option value="31" >Denver</option>'
+      +'<option value="33" >Dolores</option>'
+      +'<option value="35" >Douglas</option>'
+      +'<option value="37" >Eagle</option>'
+      +'<option value="39" >Elbert</option>'
+      +'<option value="41" >El Paso</option>'
+      +'<option value="43" >Fremont</option>'
+      +'<option value="45" >Garfield</option>'
+      +'<option value="47" >Gilpin</option>'
+      +'<option value="49" >Grand</option>'
+      +'<option value="51" >Gunnison</option>'
+      +'<option value="53" >Hinsdale</option>'
+      +'<option value="55" >Huerfano</option>'
+      +'<option value="57" >Jackson</option>'
+      +'<option value="59" >Jefferson</option>'
+      +'<option value="61" >Kiowa</option>'
+      +'<option value="63" >Kit Carson</option>'
+      +'<option value="65" >Lake</option>'
+      +'<option value="67" >La Plata</option>'
+      +'<option value="69" >Larimer</option>'
+      +'<option value="71" >Las Animas</option>'
+      +'<option value="73" >Lincoln</option>'
+      +'<option value="75" >Logan</option>'
+      +'<option value="77" >Mesa</option>'
+      +'<option value="79" >Mineral</option>'
+      +'<option value="81" >Moffat</option>'
+      +'<option value="83" >Montezuma</option>'
+      +'<option value="85" >Montrose</option>'
+      +'<option value="87" >Morgan</option>'
+      +'<option value="89" >Otero</option>'
+      +'<option value="91" >Ouray</option>'
+      +'<option value="93" >Park</option>'
+      +'<option value="95" >Phillips</option>'
+      +'<option value="97" >Pitkin</option>'
+      +'<option value="99" >Prowers</option>'
+      +'<option value="101" >Pueblo</option>'
+      +'<option value="103" >Rio Blanco</option>'
+      +'<option value="105" >Rio Grande</option>'
+      +'<option value="107" >Routt</option>'
+      +'<option value="109" >Saguache</option>'
+      +'<option value="111" >San Juan</option>'
+      +'<option value="113" >San Miguel</option>'
+      +'<option value="115" >Sedgwick</option>'
+      +'<option value="117" >Summit</option>'
+      +'<option value="119" >Teller</option>'
+      +'<option value="121" >Washington</option>'
+      +'<option value="123" >Weld</option>'
+      +'<option value="125" >Yuma</option>';
+    $("#sel").html(options);
+  }
+  else if(value=="Municipality")
+  {
+    var options = "";
+    options+='<option value="0" >Colorado</option>'
+      +'<option value="1" >Adams</option>';
+    $("#sel").html(options);
+  }
+});
+
+/* document.getElementById("geosel").addEventListener("change",function(){
+
+}) */
 
 //function to create a white background for the canvas and convert to a png
 function dlCanvas(){
@@ -23,7 +111,7 @@ function dlCanvas(){
 };
 downloadPNG.addEventListener('click', dlCanvas, false);
 
-$('select[multiple]').multiselect()
+//$('select[multiple]').multiselect()
 
 //change these to reflect Alamosa when making the annual update
 var startlabels = ['0 to 4', '5 to 9', '10 to 14', '15 to 19', '20 to 24', '25 to 29', '30 to 34', '35 to 39', '40 to 44', '45 to 49', '50 to 54', '55 to 59', '60 to 64', '65 to 69', '70 to 74', '75 to 79', '80 to 84', '85 to 89', '90 to 94', '95+'];
@@ -122,6 +210,10 @@ window.onload = function() {
 	});
 			
 };
+
+//Change select elements
+
+
 
 //selectElemCounty.addEventListener('change', handler, false);
 //selectElemSource.addEventListener('change', handler, false);

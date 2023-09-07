@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Multi County Age Line Chart</title>
+	<title>Multi Jurisdiction Age Line Chart</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
@@ -51,77 +51,88 @@
 		</div> 
 	   
 	<div class="grid-item app-panel_2_2" id="main" tabindex="-1"> 
-	<div style="margin-left: 5px;"> 
+	<div style="margin-left: 0px;"> 
 	  <br />
-	  <p>Select choices from dropdown and then hit the Draw Chart button to reflect your selections. Drawing can take a moment.</p>
-	  <label>Counties:
-	  <select multiple id="sel">
-		<option value="0" selected>Colorado</option>
-		<option value="1" >Adams</option>
-		<option value="3" >Alamosa</option>
-		<option value="5" >Arapahoe</option>
-	    <option value="7" >Archuleta</option>
-	    <option value="9" >Baca</option>
-	    <option value="11" >Bent</option>
-		<option value="13" >Boulder</option>
-		<option value="14" >Broomfield</option>
-	    <option value="15" >Chaffee</option>
-	    <option value="17" >Cheyenne</option>
-	    <option value="19" >Clear Creek</option>
-	    <option value="21" >Conejos</option>
-	    <option value="23" >Costilla</option>
-	    <option value="25" >Crowley</option>
-	    <option value="27" >Custer</option>
-	    <option value="29" >Delta</option>
-		<option value="31" >Denver</option>
-	    <option value="33" >Dolores</option>
-		<option value="35" >Douglas</option>
-	    <option value="37" >Eagle</option>
-	    <option value="39" >Elbert</option>
-	    <option value="41" >El Paso</option>
-	    <option value="43" >Fremont</option>
-	    <option value="45" >Garfield</option>
-	    <option value="47" >Gilpin</option>
-	    <option value="49" >Grand</option>
-	    <option value="51" >Gunnison</option>
-	    <option value="53" >Hinsdale</option>
-	    <option value="55" >Huerfano</option>
-	    <option value="57" >Jackson</option>
-		<option value="59" >Jefferson</option>
-	    <option value="61" >Kiowa</option>
-	    <option value="63" >Kit Carson</option>
-	    <option value="65" >Lake</option>
-	    <option value="67" >La Plata</option>
-	    <option value="69" >Larimer</option>
-	    <option value="71" >Las Animas</option>
-	    <option value="73" >Lincoln</option>
-	    <option value="75" >Logan</option>
-	    <option value="77" >Mesa</option>
-	    <option value="79" >Mineral</option>
-	    <option value="81" >Moffat</option>
-	    <option value="83" >Montezuma</option>
-	    <option value="85" >Montrose</option>
-	    <option value="87" >Morgan</option>
-	    <option value="89" >Otero</option>
-	    <option value="91" >Ouray</option>
-	    <option value="93" >Park</option>
-	    <option value="95" >Phillips</option>
-	    <option value="97" >Pitkin</option>
-	    <option value="99" >Prowers</option>
-	    <option value="101" >Pueblo</option>
-	    <option value="103" >Rio Blanco</option>
-	    <option value="105" >Rio Grande</option>
-	    <option value="107" >Routt</option>
-	    <option value="109" >Saguache</option>
-	    <option value="111" >San Juan</option>
-	    <option value="113" >San Miguel</option>
-	    <option value="115" >Sedgwick</option>
-	    <option value="117" >Summit</option>
-	    <option value="119" >Teller</option>
-	    <option value="121" >Washington</option>
-	    <option value="123" >Weld</option>
-	    <option value="125" >Yuma</option>
+	  <p>Select choices from dropdown and then hit the Redraw Chart button to reflect your selections. Drawing can take a moment.</p>
+	  <label>Geography:
+	  <select id="geosel">
+		<option value="County" selected>County</option>
+		<option value="Municipality" >Municipality</option>
 	  </select></label>
+	  <label>Counties:
+		<select multiple id="sel">
+		  <option value="0" selected>Colorado</option>
+		  <option value="1" >Adams</option>
+		  <option value="3" >Alamosa</option>
+		  <option value="5" >Arapahoe</option>
+		  <option value="7" >Archuleta</option>
+		  <option value="9" >Baca</option>
+		  <option value="11" >Bent</option>
+		  <option value="13" >Boulder</option>
+		  <option value="14" >Broomfield</option>
+		  <option value="15" >Chaffee</option>
+		  <option value="17" >Cheyenne</option>
+		  <option value="19" >Clear Creek</option>
+		  <option value="21" >Conejos</option>
+		  <option value="23" >Costilla</option>
+		  <option value="25" >Crowley</option>
+		  <option value="27" >Custer</option>
+		  <option value="29" >Delta</option>
+		  <option value="31" >Denver</option>
+		  <option value="33" >Dolores</option>
+		  <option value="35" >Douglas</option>
+		  <option value="37" >Eagle</option>
+		  <option value="39" >Elbert</option>
+		  <option value="41" >El Paso</option>
+		  <option value="43" >Fremont</option>
+		  <option value="45" >Garfield</option>
+		  <option value="47" >Gilpin</option>
+		  <option value="49" >Grand</option>
+		  <option value="51" >Gunnison</option>
+		  <option value="53" >Hinsdale</option>
+		  <option value="55" >Huerfano</option>
+		  <option value="57" >Jackson</option>
+		  <option value="59" >Jefferson</option>
+		  <option value="61" >Kiowa</option>
+		  <option value="63" >Kit Carson</option>
+		  <option value="65" >Lake</option>
+		  <option value="67" >La Plata</option>
+		  <option value="69" >Larimer</option>
+		  <option value="71" >Las Animas</option>
+		  <option value="73" >Lincoln</option>
+		  <option value="75" >Logan</option>
+		  <option value="77" >Mesa</option>
+		  <option value="79" >Mineral</option>
+		  <option value="81" >Moffat</option>
+		  <option value="83" >Montezuma</option>
+		  <option value="85" >Montrose</option>
+		  <option value="87" >Morgan</option>
+		  <option value="89" >Otero</option>
+		  <option value="91" >Ouray</option>
+		  <option value="93" >Park</option>
+		  <option value="95" >Phillips</option>
+		  <option value="97" >Pitkin</option>
+		  <option value="99" >Prowers</option>
+		  <option value="101" >Pueblo</option>
+		  <option value="103" >Rio Blanco</option>
+		  <option value="105" >Rio Grande</option>
+		  <option value="107" >Routt</option>
+		  <option value="109" >Saguache</option>
+		  <option value="111" >San Juan</option>
+		  <option value="113" >San Miguel</option>
+		  <option value="115" >Sedgwick</option>
+		  <option value="117" >Summit</option>
+		  <option value="119" >Teller</option>
+		  <option value="121" >Washington</option>
+		  <option value="123" >Weld</option>
+		  <option value="125" >Yuma</option>
+		</select>
+      </label>
+	  <!-- <select hidden="true" multiple id="munisel">
+		<option value="0" selected>Colorado</option>
+		<option value="1" >Adams</option>			  
+	  </select> -->
+			
 	  <label>Source: 
 		<select id="sel2">
 			<option value="0" >2020 SDO Estimates</option>
@@ -132,11 +143,15 @@
 			<option value="0" >Total Population</option>
 			<option value="1" >% of Population</option>
 		</select></label>
+		
+	</div>
+	
+	<div>
 		<button id="drawbtn" type="button">
 			Redraw Chart
 		</button>
 	</div>
-	
+<p></p>
 	<div class="dropdown AClass">
 		<button class="dropbtn"  id="estimate"><i class="fas fas fa-download fa-2x" style='color: black;'></i></button>
 		<div class="dropdown-content">
@@ -170,6 +185,7 @@
 
 	<script src="js/app2.js"></script>
 
+	
 
 </body>
 
