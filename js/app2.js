@@ -11,7 +11,7 @@ $("#geosel").on('change',function(){
   var value=$(this).val();
   if(value=="County")
   {
-    var options = "";
+/*     var options = "";
     options+='<option value="0" >Colorado</option>'
       +'<option value="1" >Adams</option>'
       +'<option value="3" >Alamosa</option>'
@@ -76,15 +76,22 @@ $("#geosel").on('change',function(){
       +'<option value="119" >Teller</option>'
       +'<option value="121" >Washington</option>'
       +'<option value="123" >Weld</option>'
-      +'<option value="125" >Yuma</option>';
-    $("#sel").html(options);
+      +'<option value="125" >Yuma</option>'; */
+      $("#sel").show();
+      $("#munisel").hide();//.html(options);
+      $("#SDOEst").show();
+      
+
   }
   else if(value=="Municipality")
   {
-    var options = "";
+/*     var options = "";
     options+='<option value="0" >Colorado</option>'
-      +'<option value="1" >Adams</option>';
-    $("#sel").html(options);
+      +'<option value="1" >Adams</option>'; */
+      $("#sel").hide();
+      $("#munisel").show();//html(options);
+      $("#SDOEst").hide();
+      $("#sel2").html(html).trigger('change');
   }
 });
 
