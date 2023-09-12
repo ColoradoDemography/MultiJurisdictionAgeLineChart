@@ -11,72 +11,7 @@ $("#geosel").on('change',function(){
   var value=$(this).val();
   if(value=="County")
   {
-/*     var options = "";
-    options+='<option value="0" >Colorado</option>'
-      +'<option value="1" >Adams</option>'
-      +'<option value="3" >Alamosa</option>'
-      +'<option value="5" >Arapahoe</option>'
-      +'<option value="7" >Archuleta</option>'
-      +'<option value="9" >Baca</option>'
-      +'<option value="11" >Bent</option>'
-      +'<option value="13" >Boulder</option>'
-      +'<option value="14" >Broomfield</option>'
-      +'<option value="15" >Chaffee</option>'
-      +'<option value="17" >Cheyenne</option>'
-      +'<option value="19" >Clear Creek</option>'
-      +'<option value="21" >Conejos</option>'
-      +'<option value="23" >Costilla</option>'
-      +'<option value="25" >Crowley</option>'
-      +'<option value="27" >Custer</option>'
-      +'<option value="29" >Delta</option>'
-      +'<option value="31" >Denver</option>'
-      +'<option value="33" >Dolores</option>'
-      +'<option value="35" >Douglas</option>'
-      +'<option value="37" >Eagle</option>'
-      +'<option value="39" >Elbert</option>'
-      +'<option value="41" >El Paso</option>'
-      +'<option value="43" >Fremont</option>'
-      +'<option value="45" >Garfield</option>'
-      +'<option value="47" >Gilpin</option>'
-      +'<option value="49" >Grand</option>'
-      +'<option value="51" >Gunnison</option>'
-      +'<option value="53" >Hinsdale</option>'
-      +'<option value="55" >Huerfano</option>'
-      +'<option value="57" >Jackson</option>'
-      +'<option value="59" >Jefferson</option>'
-      +'<option value="61" >Kiowa</option>'
-      +'<option value="63" >Kit Carson</option>'
-      +'<option value="65" >Lake</option>'
-      +'<option value="67" >La Plata</option>'
-      +'<option value="69" >Larimer</option>'
-      +'<option value="71" >Las Animas</option>'
-      +'<option value="73" >Lincoln</option>'
-      +'<option value="75" >Logan</option>'
-      +'<option value="77" >Mesa</option>'
-      +'<option value="79" >Mineral</option>'
-      +'<option value="81" >Moffat</option>'
-      +'<option value="83" >Montezuma</option>'
-      +'<option value="85" >Montrose</option>'
-      +'<option value="87" >Morgan</option>'
-      +'<option value="89" >Otero</option>'
-      +'<option value="91" >Ouray</option>'
-      +'<option value="93" >Park</option>'
-      +'<option value="95" >Phillips</option>'
-      +'<option value="97" >Pitkin</option>'
-      +'<option value="99" >Prowers</option>'
-      +'<option value="101" >Pueblo</option>'
-      +'<option value="103" >Rio Blanco</option>'
-      +'<option value="105" >Rio Grande</option>'
-      +'<option value="107" >Routt</option>'
-      +'<option value="109" >Saguache</option>'
-      +'<option value="111" >San Juan</option>'
-      +'<option value="113" >San Miguel</option>'
-      +'<option value="115" >Sedgwick</option>'
-      +'<option value="117" >Summit</option>'
-      +'<option value="119" >Teller</option>'
-      +'<option value="121" >Washington</option>'
-      +'<option value="123" >Weld</option>'
-      +'<option value="125" >Yuma</option>'; */
+
       $("#sel").show();
       $("#munisel").hide();//.html(options);
       $("#SDOEst").show();
@@ -91,7 +26,7 @@ $("#geosel").on('change',function(){
       $("#sel").hide();
       $("#munisel").show();//html(options);
       $("#SDOEst").hide();
-      $("#sel2").html(html).trigger('change');
+      //$("#sel2").html(html).trigger('change');
   }
 });
 
@@ -128,14 +63,37 @@ var startdata = [992,1389,129,137,2078,695,756,436,0,0,992,1389,129,137,2078,695
 window.onload = function() {
 	var ctx = document.getElementById('canvas').getContext('2d');
   var firstdata = getData("0");
-  //var seconddata = getData2();
+  var seconddata = getData2();
   
   var sdodata = [];
-  //var censusdata = [];
+  var censusdata = [];
   for (i in firstdata){
     sdodata.push(Number(firstdata[i].totalpopulation));
   }
- 
+  for (i in seconddata){
+    if (seconddata[i].fips == 0){
+      censusdata.push(Number(seconddata[i].Age0));
+      censusdata.push(Number(seconddata[i].Age5));
+      censusdata.push(Number(seconddata[i].Age10));
+      censusdata.push(Number(seconddata[i].Age15));
+      censusdata.push(Number(seconddata[i].Age20));
+      censusdata.push(Number(seconddata[i].Age25));
+      censusdata.push(Number(seconddata[i].Age30));
+      censusdata.push(Number(seconddata[i].Age35));
+      censusdata.push(Number(seconddata[i].Age40));
+      censusdata.push(Number(seconddata[i].Age45));
+      censusdata.push(Number(seconddata[i].Age50));
+      censusdata.push(Number(seconddata[i].Age55));
+      censusdata.push(Number(seconddata[i].Age60));
+      censusdata.push(Number(seconddata[i].Age65));
+      censusdata.push(Number(seconddata[i].Age70));
+      censusdata.push(Number(seconddata[i].Age75));
+      censusdata.push(Number(seconddata[i].Age80));
+      censusdata.push(Number(seconddata[i].Age85));
+      censusdata.push(Number(seconddata[i].Age90));
+      censusdata.push(Number(seconddata[i].Age95));
+    }
+  }
 
 	window.myLine = new Chart(ctx, {
 		type: 'line',
@@ -144,7 +102,7 @@ window.onload = function() {
     data: {
       datasets:[{
         label: "Colorado",
-        data: sdodata,
+        data: censusdata,
         fill: false,
         backgroundColor: 'rgb(239,138,98)',
         borderColor: 'rgb(239,138,98)'
@@ -169,7 +127,7 @@ window.onload = function() {
             display: false
           },
           label: function(tooltipItem, data) {
-            if (selectElemStat.value == 0){
+            if (selectElemStat.value != 1){
               var label = commafy(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]);
             } else {
               var label = formatAsPercentage(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index],2);
@@ -184,7 +142,7 @@ window.onload = function() {
 			    categoryPercentage: 0.5,
           ticks: {
 			      callback: function(value, index, values) {
-              if (selectElemStat.value == 0){
+              if (selectElemStat.value != 1){
 			          return commafy(value);
               } else{
                 return formatAsPercentage(value, 0);
@@ -229,8 +187,11 @@ drawElement.addEventListener("click", handler);
 //selectElemCountyaddEventListener('change', function() {
 function handler(event){
   var chartDatasets = [];
-  var selectedValues = $('#sel').val();
-  
+  if (selectElemGeo.value == "County"){
+    var selectedValues = $('#sel').val();
+  } else {
+    var selectedValues = $('#munisel').val();
+  }
   
   myLine.data.datasets.forEach(dataset => { 
     for (let d = 0; d < myLine.data.datasets.length; i++){
@@ -241,80 +202,15 @@ function handler(event){
     //console.log(selectElemVal);
     seconddata = getData2();
     for (let i = 0; i < selectedValues.length; i++){
-      selectElemVal = getData(selectedValues[i]);
-      
+      //selectElemVal = getData(selectedValues[i]);
+      //console.log(selectElemVal);
       var sdodata = [];
       var censusdata = [];
-      if (selectElemSource.value == "0"){
-        if (selectElemStat.value == "0"){
-          for (j in selectElemVal){
-            sdodata.push(Number(selectElemVal[j].totalpopulation));
-          }
-          //const dsColor = getRandomColor();
-          const newDataset = {
-            label: selectElemVal[0].county,
-            backgroundColor: colorList[i],
-            borderColor: colorList[i],
-            fill: false,
-            data: sdodata
-          }
-          console.log("Push");
-          myLine.data.datasets.push(newDataset);
-        } else { console.log("1");
-          var sdototalpop = 0;
-          var censustotalpop = 0;
-          var tempsdo = [];
-          var tempcensus = [];
-          for (j in selectElemVal){
-            tempsdo.push(Number(selectElemVal[j].totalpopulation));
-            sdototalpop += Number(selectElemVal[j].totalpopulation);
-          }
-          console.log("tempsdo: " + tempsdo); console.log("sdototalpop " + sdototalpop);
-          for (k in tempsdo){
-            sdodata.push((tempsdo[k]/sdototalpop*100));
-          }
-        
-          //const dsColor = getRandomColor();
-          const newDataset = {
-            label: selectElemVal[0].county,
-            backgroundColor: colorList[i],
-            borderColor: colorList[i],
-            fill: false,
-            data: sdodata
-          }
-          console.log("Push");
-          myLine.data.datasets.push(newDataset);
-      }
-        //sdodata);
-        //myLine.data.datasets[i].data.push(sdodata);
-        /* for (j in seconddata){
-          if (seconddata[j].countyfips == selectElemCountyvalue){
-            censusdata.push(Number(seconddata[j].Age0));
-            censusdata.push(Number(seconddata[j].Age5));
-            censusdata.push(Number(seconddata[j].Age10));
-            censusdata.push(Number(seconddata[j].Age15));
-            censusdata.push(Number(seconddata[j].Age20));
-            censusdata.push(Number(seconddata[j].Age25));
-            censusdata.push(Number(seconddata[j].Age30));
-            censusdata.push(Number(seconddata[j].Age35));
-            censusdata.push(Number(seconddata[j].Age40));
-            censusdata.push(Number(seconddata[j].Age45));
-            censusdata.push(Number(seconddata[j].Age50));
-            censusdata.push(Number(seconddata[j].Age55));
-            censusdata.push(Number(seconddata[j].Age60));
-            censusdata.push(Number(seconddata[j].Age65));
-            censusdata.push(Number(seconddata[j].Age70));
-            censusdata.push(Number(seconddata[j].Age75));
-            censusdata.push(Number(seconddata[j].Age80));
-            censusdata.push(Number(seconddata[j].Age85));
-            censusdata.push(Number(seconddata[j].Age90));
-            censusdata.push(Number(seconddata[j].Age95));
-          }   
-        } */
-      } else {
+      
       if (selectElemStat.value == "0"){
         for (j in seconddata){
-          if (seconddata[j].countyfips == selectedValues[i]){
+          if (seconddata[j].fips == selectedValues[i]){
+            jurname = seconddata[j].name;
             censusdata.push(Number(seconddata[j].Age0));
             censusdata.push(Number(seconddata[j].Age5));
             censusdata.push(Number(seconddata[j].Age10));
@@ -340,21 +236,21 @@ function handler(event){
 
         //const dsColor = getRandomColor();
         const newDataset = {
-          label: selectElemVal[0].county,
+          label: jurname,
           backgroundColor: colorList[i],
           borderColor: colorList[i],
           fill: false,
           data: censusdata
         }
-        console.log("Push");
+        //console.log("Push");
         myLine.data.datasets.push(newDataset)
-      }
-       else{
+      } else {
         
         var censustotalpop = 0;
         var tempcensus = [];
         for (j in seconddata){
-          if (seconddata[j].countyfips == selectedValues[i]){
+          if (seconddata[j].fips == selectedValues[i]){
+            jurname = seconddata[j].name;
             tempcensus.push(Number(seconddata[j].Age0));
             tempcensus.push(Number(seconddata[j].Age5));
             tempcensus.push(Number(seconddata[j].Age10));
@@ -387,22 +283,18 @@ function handler(event){
 
         //const dsColor = getRandomColor();
         const newDataset = {
-          label: selectElemVal[0].county,
+          label: jurname,
           backgroundColor: colorList[i],
           borderColor: colorList[i],
           fill: false,
           data: censusdata
         }
-console.log("Push");
+
         myLine.data.datasets.push(newDataset)
-      
+      }
     }
-  }
-    //myLine.data.datasets.push(chartDatasets);
-    //dataset.data = sdodata;
-    }
-  });
-  //console.log(myLine.data.datasets);
+});
+    
   window.myLine.update();
 };
 
