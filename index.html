@@ -55,12 +55,12 @@
 	<div style="margin-left: 0px;"> 
 	  <br />
 	  <p>Select choices from dropdown and then hit the Redraw Chart button to reflect your selections. Drawing can take a moment.</p>
-	  <label>Geography:
+	  <!-- <label>Geography:
 	  <select id="geosel">
 		<option value="County" selected>County</option>
 		<option value="Municipality" >Municipality</option>
-	  </select></label>
-	  <label>Jurisdictions:
+	  </select></label> -->
+	  <label>Counties:
 		<select multiple id="sel">
 		  <option value="0" selected>Colorado</option>
 		  <option value="1" >Adams</option>
@@ -127,8 +127,9 @@
 		  <option value="121" >Washington</option>
 		  <option value="123" >Weld</option>
 		  <option value="125" >Yuma</option>
-		</select>
-		<select hidden="true" multiple id="munisel">
+		</select></label>
+	<label>Municipalities:
+		<select multiple id="munisel">
 			<option value="1090" >Alamosa</option>
 			<option value="3455" >Arvada</option>
 			<option value="3620" >Aspen</option>
@@ -256,8 +257,8 @@
 		</select></label> --> 
 	  <label>Statistic: 
 		<select id="sel3">
-			<option selected disabled>Choose Statistic</option>
-			<option value="0" >Total Population (default)</option>
+			<!--<option selected disabled>Choose Statistic</option>-->
+			<option selected value="0" >Total Population</option>
 			<option value="1" >% of Population</option>
 		</select></label>
 		

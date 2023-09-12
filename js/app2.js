@@ -7,28 +7,21 @@ var drawElement = document.getElementById('drawbtn');
 var srcCanvas = document.getElementById('canvas');
 
 
-$("#geosel").on('change',function(){  
+/* $("#geosel").on('change',function(){  
   var value=$(this).val();
   if(value=="County")
   {
-
       $("#sel").show();
-      $("#munisel").hide();//.html(options);
+      $("#munisel").hide();
       $("#SDOEst").show();
-      
-
   }
   else if(value=="Municipality")
   {
-/*     var options = "";
-    options+='<option value="0" >Colorado</option>'
-      +'<option value="1" >Adams</option>'; */
       $("#sel").hide();
-      $("#munisel").show();//html(options);
+      $("#munisel").show();
       $("#SDOEst").hide();
-      //$("#sel2").html(html).trigger('change');
   }
-});
+}); */
 
 /* document.getElementById("geosel").addEventListener("change",function(){
 
@@ -187,11 +180,14 @@ drawElement.addEventListener("click", handler);
 //selectElemCountyaddEventListener('change', function() {
 function handler(event){
   var chartDatasets = [];
-  if (selectElemGeo.value == "County"){
-    var selectedValues = $('#sel').val();
-  } else {
-    var selectedValues = $('#munisel').val();
-  }
+  //if (selectElemGeo.value == "County"){
+    var countyValues = $('#sel').val();
+    
+  //} else {
+    var muniValues = $('#munisel').val();
+    var selectedValues = [...countyValues, ...muniValues];
+    console.log(selectedValues);
+  //}
   
   myLine.data.datasets.forEach(dataset => { 
     for (let d = 0; d < myLine.data.datasets.length; i++){
