@@ -9,7 +9,8 @@
 	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 	 <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
 	 <link type="text/css" rel="stylesheet" href="./css/common.css" async=""> 
-	<script src="js/Chart.js"></script>
+	<!--<script src="js/Chart.js"></script>-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 	<script src="js/utils.js"></script>
 	<script src="js/saveSvgAsPng.js"></script>
 	<!-- Google tag (gtag.js) -->
@@ -57,7 +58,8 @@
 	<p>Select choices from dropdown and then hit the Generate Chart button to reflect your selections. Drawing can take a moment.</p>
 		<p>
 		You can hover over specific data points on each graph to view the data for that specific point. <br>
-		Click on the download icon on the left of each chart to download the chart and the underlying data.
+		Click on the download icon on the left of each chart to download the chart and the underlying data. <br>
+		Shift click to add a jurisdiction or control click to remove one.
 		</p>
 		<p>
 		<b><i>This data visualization can only be viewed on a tablet or desktop.</i></b>
@@ -287,7 +289,7 @@
 		  <ul class='dd-list'>
 			<li><a href='https://storage.googleapis.com/co-publicdata/sya-county.csv' id='est_csv'>Download the SDO Data</a></li>
 			<li><a href='https://data.census.gov' id='est_census'>Download the Census Data</a></li>
-			<li><a href='#' id='downloadPNG' download="Age by County.png">Download Image (PNG)</a></li>
+			<li><a href='#' id='downloadPNG' download="Age by Jurisdiction.png">Download Image (PNG)</a></li>
 		  </ul>
 		</div>
 	</div>

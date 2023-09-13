@@ -57,7 +57,8 @@ window.onload = function() {
 	var ctx = document.getElementById('canvas').getContext('2d');
   var firstdata = getData("0");
   var seconddata = getData2();
-  
+  const date = d3.timeFormat("%B %d, %Y");
+
   var sdodata = [];
   var censusdata = [];
   for (i in firstdata){
@@ -93,21 +94,15 @@ window.onload = function() {
 		//data: lineChartData,
     
     data: {
+      labels: startlabels,
       datasets:[{
         label: "Colorado",
         data: censusdata,
         fill: false,
         backgroundColor: 'rgb(239,138,98)',
         borderColor: 'rgb(239,138,98)'
-      }/* ,
-      {
-        label: "Census",
-        data: censusdata,
-        fill: false,
-        borderColor: 'rgb(103,169,207)'
-      } */
-    ],
-      labels: startlabels,
+      }],
+      
     },
 		options: {
 
@@ -130,7 +125,8 @@ window.onload = function() {
 			  }
 			},  
 			scales: {
-			  yAxes: [{
+			  y: {
+          type: 'linear',
 			    barPercentage: 1,
 			    categoryPercentage: 0.5,
           ticks: {
@@ -142,13 +138,13 @@ window.onload = function() {
               }
 			      }
 			    },
-			  }],
-			  xAxes: [{
-			    scaleLabel: {
+			  },
+			  x: {
+          title: {
 			      display: true,
-			      labelString: 'Age Groups'
-			    }
-			  }]
+			      text: 'Age Groups'
+			    },
+			  }
 			},
 			elements: {
 				rectangle: {
@@ -156,14 +152,25 @@ window.onload = function() {
 				}
 			},
 			responsive: false,
-			legend: {
-				display: true,
-				position: 'right',
-			},
-			title: {
-				display: true,
-				text: 'Age Comparison'
-			}
+      tension: .3,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'right',
+        },
+        title: {
+          display: true,
+          text: 'Age Comparison'
+        },
+        subtitle: {
+          display: true,
+          text: 'Source: US Census Bureau 2020 DHC, Visualization by Colorado State Demography Office, '+date(new Date),
+          position: 'bottom',
+          font: {
+            size: 10
+          }
+        }
+      }
 		}
 	});
 			
@@ -187,6 +194,10 @@ function handler(event){
     var muniValues = $('#munisel').val();
     var selectedValues = [...countyValues, ...muniValues];
     console.log(selectedValues);
+    if(selectedValues.length == 0){
+      alert("Please choose at least one jurisdiction");
+      return;
+    }
   //}
   
   myLine.data.datasets.forEach(dataset => { 
