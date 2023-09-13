@@ -52,27 +52,46 @@
 		</div> 
 	   
 	<div class="grid-item app-panel_2_2"> 
-	<h1 class="'h1_style" id="main" tabindex="-1">Age Distribution Chart</h1>
+	<h1 class='h1_style' id="main" tabindex="-1">Age Distribution Chart</h1>
 	<h2 class='h2_style'>INSTRUCTIONS:</h2>
 
-	<p>Select choices from dropdown and then hit the Generate Chart button to reflect your selections. Drawing can take a moment.</p>
+	<p>Select choices from dropdowns and then hit the Generate Chart button to reflect your selections. Drawing can take a moment.</p>
 		<p>
 		You can hover over specific data points on each graph to view the data for that specific point. <br>
-		Click on the download icon on the left of each chart to download the chart and the underlying data. <br>
-		Shift click to add a jurisdiction or control click to remove one.
+		Shift click to add a jurisdiction or control click to remove one.<br>
+		Click on the download icon on the top right of the chart to download the chart and the underlying data.
 		</p>
 		<p>
 		<b><i>This data visualization can only be viewed on a tablet or desktop.</i></b>
 		</p>
-	<div style="margin-left: 0px;"> 
+	<hr>
+	<table class="lookup_tab" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="lookup_cll">
+				<label class="entry_text" for="sel" id="geo-lbl"  alt='Counties' aria-label='Counties'>Counties:</label> 
+			</td>
+			<td class="lookup_cll">
+				<label class="entry_text" for="munisel" id="geography-lbl"  alt='Municipalities' aria-label='Municipalities'>Municipalities:</label> 
+			</td>
+			<td class="lookup_cll">
+					<label class="entry_text" for="sel3" id="year-lbl"  alt='Statistic' aria-label='Statistic'>Statistic:</label> 
+			</td>
+			<td class="lookup_cll">
+			</td>
+			<td class="lookup_cll">
+			</td>
+			</tr>
+	<!-- <div style="margin-left: 0px;"> 
 	  <br />
 	  
-	  <!-- <label>Geography:
+	  <label>Geography:
 	  <select id="geosel">
 		<option value="County" selected>County</option>
 		<option value="Municipality" >Municipality</option>
-	  </select></label> -->
-	  <label class="entry_text">Counties:
+	  </select></label> 
+	  <label class="entry_text">Counties:-->
+	<tr>
+		<td class="lookup_cll">
 		<select multiple id="sel">
 		  <option value="0" selected>Colorado</option>
 		  <option value="1" >Adams</option>
@@ -139,8 +158,10 @@
 		  <option value="121" >Washington</option>
 		  <option value="123" >Weld</option>
 		  <option value="125" >Yuma</option>
-		</select></label>
-	<label class="entry_text">Municipalities:
+		</select>
+	</td>
+	<!--<label class="entry_text">Municipalities:-->
+	<td class="lookup_cll">
 		<select multiple id="munisel">
 			<option value="1090" >Alamosa</option>
 			<option value="3455" >Arvada</option>
@@ -258,31 +279,39 @@
 			<option value="86475" >Yampa</option>
 			<option value="86750" >Yuma</option>			  
 		  </select>
-      </label>
+	  </td>
+      <!-- </label>
 	  
 			
-	  <!-- <label>Source: 
+	  <label>Source: 
 		<select id="sel2">
 			<option selected disabled>Choose a Source</option>
 			<option id="SDOEst" value="0" >2020 SDO Estimates (default)</option>
 			<option id="CenEst" value="1" >2020 Census Population</option>
-		</select></label> --> 
-	  <label class="entry_text">Statistic: 
-		<select id="sel3">
-			<!--<option selected disabled>Choose Statistic</option>-->
-			<option selected value="0" >Total Population</option>
-			<option value="1" >% of Population</option>
-		</select></label>
-		<button class='databutton' id='drawbtn'>Generate Chart</button><br><br>
+		</select></label> 
+	  <label class="entry_text">Statistic: --> 
+		<td class="lookup_cll">
+			<select id="sel3">
+				<option selected value="0" >Total Population</option>
+				<option value="1" >% of Population</option>
+			</select>
+		</td>
+		<td class="lookup_cll">
+			<button class='databutton' id='drawbtn'>Generate Chart</button><br><br>
+			<div class="dropdown AClass">
+			<button class="dropbtn"  id="estimate"><i class="fas fas fa-download fa-2x" style='color: black;'></i></button>
+			<div class="dropdown-content">
+			<ul class='dd-list'>
+				<li><a href='https://data.census.gov' id='est_census'>Download the Census Data</a></li>
+				<li><a href='#' id='downloadPNG' download="Age by Jurisdiction.png">Download Image (PNG)</a></li>
+			</ul>
+		</div>
 	</div>
-	
-	<!--<div>
-		
-		<button id="drawbtn" type="button">
-			Redraw Chart
-		</button>
-	</div>-->
-<p></p>
+		</td>
+	</tr>
+</table>
+</div>
+<!-- <div class="grid-item app-panel_3_2"></div>	
 	<div class="dropdown AClass">
 		<button class="dropbtn"  id="estimate"><i class="fas fas fa-download fa-2x" style='color: black;'></i></button>
 		<div class="dropdown-content">
@@ -293,8 +322,8 @@
 		  </ul>
 		</div>
 	</div>
-	
-
+</div>	 -->
+<div class="grid-item app-panel_3_2">
 	<div id="container" style="width: 100%; height: 100%" >
 		<canvas id="canvas" width="800" height="400">
             <p>Your Browser Does Not Support Canvas</p>
