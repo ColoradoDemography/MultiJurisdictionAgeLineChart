@@ -164,7 +164,7 @@ window.onload = function() {
         },
         subtitle: {
           display: true,
-          text: 'Source: US Census Bureau 2020 DHC, Visualization by Colorado State Demography Office, '+date(new Date),
+          text: 'Source: US Census Bureau 2020 DHC, Visualization by Colorado State Demography Office. Print date: '+date(new Date),
           position: 'bottom',
           font: {
             size: 10
