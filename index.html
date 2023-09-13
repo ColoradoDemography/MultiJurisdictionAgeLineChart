@@ -52,15 +52,25 @@
 	   
 	<div class="grid-item app-panel_2_2"> 
 	<h1 class="'h1_style" id="main" tabindex="-1">Age Distribution Chart</h1>
+	<h2 class='h2_style'>INSTRUCTIONS:</h2>
+
+	<p>Select choices from dropdown and then hit the Generate Chart button to reflect your selections. Drawing can take a moment.</p>
+		<p>
+		You can hover over specific data points on each graph to view the data for that specific point. <br>
+		Click on the download icon on the left of each chart to download the chart and the underlying data.
+		</p>
+		<p>
+		<b><i>This data visualization can only be viewed on a tablet or desktop.</i></b>
+		</p>
 	<div style="margin-left: 0px;"> 
 	  <br />
-	  <p>Select choices from dropdown and then hit the Redraw Chart button to reflect your selections. Drawing can take a moment.</p>
+	  
 	  <!-- <label>Geography:
 	  <select id="geosel">
 		<option value="County" selected>County</option>
 		<option value="Municipality" >Municipality</option>
 	  </select></label> -->
-	  <label>Counties:
+	  <label class="entry_text">Counties:
 		<select multiple id="sel">
 		  <option value="0" selected>Colorado</option>
 		  <option value="1" >Adams</option>
@@ -128,7 +138,7 @@
 		  <option value="123" >Weld</option>
 		  <option value="125" >Yuma</option>
 		</select></label>
-	<label>Municipalities:
+	<label class="entry_text">Municipalities:
 		<select multiple id="munisel">
 			<option value="1090" >Alamosa</option>
 			<option value="3455" >Arvada</option>
@@ -255,20 +265,21 @@
 			<option id="SDOEst" value="0" >2020 SDO Estimates (default)</option>
 			<option id="CenEst" value="1" >2020 Census Population</option>
 		</select></label> --> 
-	  <label>Statistic: 
+	  <label class="entry_text">Statistic: 
 		<select id="sel3">
 			<!--<option selected disabled>Choose Statistic</option>-->
 			<option selected value="0" >Total Population</option>
 			<option value="1" >% of Population</option>
 		</select></label>
-		
+		<button class='databutton' id='drawbtn'>Generate Chart</button><br><br>
 	</div>
 	
-	<div>
+	<!--<div>
+		
 		<button id="drawbtn" type="button">
 			Redraw Chart
 		</button>
-	</div>
+	</div>-->
 <p></p>
 	<div class="dropdown AClass">
 		<button class="dropbtn"  id="estimate"><i class="fas fas fa-download fa-2x" style='color: black;'></i></button>
