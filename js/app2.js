@@ -5,6 +5,7 @@ var selectElemSource = document.getElementById('sel2');
 var selectElemStat = document.getElementById('sel3');
 var drawElement = document.getElementById('drawbtn');
 var srcCanvas = document.getElementById('canvas');
+Chart.defaults.color = '#000';
 
 
 /* $("#geosel").on('change',function(){  
