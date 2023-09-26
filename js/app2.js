@@ -47,6 +47,39 @@ function dlCanvas(){
 };
 downloadPNG.addEventListener('click', dlCanvas, false);
 
+function dataCensus(){
+  htmlString = 'https://data.census.gov/table?q=pct12&g=';
+  var countyValues = $('#sel').val();
+  var muniValues = $('#munisel').val();
+  htmlCounty = '';
+  htmlMuni = '';
+  htmlGeo = '';
+  for (i in countyValues){
+    if (countyValues[i] == "0"){
+      htmlCounty = htmlCounty + "040XX00US08_";
+    } else if (countyValues[i].length == 1){
+      htmlCounty = htmlCounty + "050XX00US0800" + countyValues[i] + "_";
+    } else if (countyValues[i].length == 2){
+      htmlCounty = htmlCounty + "050XX00US080" + countyValues[i] + "_";
+    } else {
+      htmlCounty = htmlCounty + "050XX00US08" + countyValues[i] + "_";
+    }
+  }
+  for (j in muniValues){
+    if (muniValues[j].length == 3){
+      htmlMuni = htmlMuni + "160XX00US0800" + muniValues[j] + "_";
+    } else if (muniValues[j].length == 4){
+      htmlMuni = htmlMuni + "160XX00US080" + muniValues[j] + "_";
+    } else {
+      htmlMuni = htmlMuni + "160XX00US08" + muniValues[j] + "_";
+    }
+  }
+  htmlGeo = htmlCounty + htmlMuni;
+  htmlString = htmlString + htmlGeo;
+  return window.open(htmlString, '_blank');
+}
+est_census.addEventListener('click', dataCensus, false);
+
 //$('select[multiple]').multiselect()
 
 //change these to reflect Alamosa when making the annual update
